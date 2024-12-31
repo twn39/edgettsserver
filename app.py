@@ -14,6 +14,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+async def home():
+    return {
+        'title': 'Edge TTS Server API.',
+        'version': '1.0',
+    }
+
 
 @app.get("/tts")
 async def tts(text: str, voice: str = 'en-GB-SoniaNeural'):
